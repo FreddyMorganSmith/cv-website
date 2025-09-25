@@ -33,7 +33,6 @@ Personal introduction highlighting my background as a Cyber Security and Digital
 ### Projects & CTF Achievements
 - **[TryHackMe](https://tryhackme.com)** - Active participation in cyber security challenges and learning paths
 - **[Task-B](https://github.com/FreddyMorganSmith/Task-B)** - Python-based security testing project
-- **[Hawkshot](/)** - Discord bot for League of Legends and VALORANT game tracking
 
 ### Certifications & Skills
 - **CompTIA Security+** (In Progress)
