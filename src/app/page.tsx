@@ -5,11 +5,68 @@ import Image from 'next/image';
 
 export default function Home() {
   const [isClient, setIsClient] = useState(false);
+  const [activeSection, setActiveSection] = useState('about');
 
   // Ensure we're on the client side
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  // Active section detection
+  useEffect(() => {
+    if (!isClient) return;
+
+    const sections = ['about', 'education', 'projects', 'university-projects'];
+    const observerOptions = {
+      root: null,
+      rootMargin: '-10% 0px -20% 0px',
+      threshold: [0, 0.1, 0.25, 0.5, 0.75, 1]
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      // Create a map of all currently intersecting sections with their ratios
+      const intersectingSections = new Map();
+      
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          intersectingSections.set(entry.target.id, entry.intersectionRatio);
+        }
+      });
+      
+      if (intersectingSections.size > 0) {
+        // Find the section with the highest intersection ratio
+        let maxRatio = 0;
+        let activeId = '';
+        
+        for (const [id, ratio] of intersectingSections) {
+          if (ratio > maxRatio) {
+            maxRatio = ratio;
+            activeId = id;
+          }
+        }
+        
+        if (activeId) {
+          setActiveSection(activeId);
+        }
+      }
+    }, observerOptions);
+
+    sections.forEach((sectionId) => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      sections.forEach((sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          observer.unobserve(element);
+        }
+      });
+    };
+  }, [isClient]);
 
   // Cursor glow effect
   React.useEffect(() => {
@@ -91,10 +148,13 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-900 to-black text-slate-300 font-mono">
-      <div className="lg:flex lg:justify-between lg:gap-4 mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
+      <div className="lg:flex lg:justify-between lg:gap-4 mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-8 lg:py-0">
         
         {/* Left Side - Fixed Header */}
-        <div className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
+        <div className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 lg:pr-12 lg:relative">
+          {/* Vertical Divider Line */}
+          <div className="hidden lg:block lg:absolute lg:right-5 lg:top-0 lg:bottom-0 lg:w-px bg-gradient-to-b from-transparent via-slate-600 to-transparent opacity-30"></div>
+          
           <div>
             <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
               Freddy Morgan-Smith
@@ -110,33 +170,33 @@ export default function Home() {
             <nav className="nav hidden lg:block" aria-label="In-page jump links">
               <ul className="mt-16 w-max">
                 <li>
-                  <a className="group flex items-center py-3 active" href="#about">
-                    <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span>
-                    <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">
+                  <a className={`group flex items-center py-3 ${activeSection === 'about' ? 'active' : ''}`} href="#about">
+                    <span className={`nav-indicator mr-4 h-px bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none ${activeSection === 'about' ? 'w-16 bg-slate-200' : 'w-8'}`}></span>
+                    <span className={`nav-text text-xs font-bold uppercase tracking-widest group-hover:text-slate-200 group-focus-visible:text-slate-200 transition-colors ${activeSection === 'about' ? 'text-slate-200' : 'text-slate-500'}`}>
                       About
                     </span>
                   </a>
                 </li>
                 <li>
-                  <a className="group flex items-center py-3" href="#education">
-                    <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span>
-                    <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">
+                  <a className={`group flex items-center py-3 ${activeSection === 'education' ? 'active' : ''}`} href="#education">
+                    <span className={`nav-indicator mr-4 h-px bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none ${activeSection === 'education' ? 'w-16 bg-slate-200' : 'w-8'}`}></span>
+                    <span className={`nav-text text-xs font-bold uppercase tracking-widest group-hover:text-slate-200 group-focus-visible:text-slate-200 transition-colors ${activeSection === 'education' ? 'text-slate-200' : 'text-slate-500'}`}>
                       Education
                     </span>
                   </a>
                 </li>
                 <li>
-                  <a className="group flex items-center py-3" href="#projects">
-                    <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span>
-                    <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">
+                  <a className={`group flex items-center py-3 ${activeSection === 'projects' ? 'active' : ''}`} href="#projects">
+                    <span className={`nav-indicator mr-4 h-px bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none ${activeSection === 'projects' ? 'w-16 bg-slate-200' : 'w-8'}`}></span>
+                    <span className={`nav-text text-xs font-bold uppercase tracking-widest group-hover:text-slate-200 group-focus-visible:text-slate-200 transition-colors ${activeSection === 'projects' ? 'text-slate-200' : 'text-slate-500'}`}>
                       Personal Projects
                     </span>
                   </a>
                 </li>
                 <li>
-                  <a className="group flex items-center py-3" href="#university-projects">
-                    <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span>
-                    <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">
+                  <a className={`group flex items-center py-3 ${activeSection === 'university-projects' ? 'active' : ''}`} href="#university-projects">
+                    <span className={`nav-indicator mr-4 h-px bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none ${activeSection === 'university-projects' ? 'w-16 bg-slate-200' : 'w-8'}`}></span>
+                    <span className={`nav-text text-xs font-bold uppercase tracking-widest group-hover:text-slate-200 group-focus-visible:text-slate-200 transition-colors ${activeSection === 'university-projects' ? 'text-slate-200' : 'text-slate-500'}`}>
                       University Projects
                     </span>
                   </a>
@@ -146,7 +206,7 @@ export default function Home() {
           </div>
           
           {/* Social Links */}
-          <ul className="ml-1 mt-8 flex items-center" aria-label="Social media">
+          <ul className="mt-8 flex items-center" aria-label="Social media">
             <li className="mr-5 text-xs shrink-0">
               <a className="block hover:text-slate-200" href="https://github.com/FreddyMorganSmith" target="_blank" rel="noreferrer noopener" aria-label="GitHub (opens in a new tab)" title="GitHub">
                 <span className="sr-only">GitHub</span>
@@ -178,6 +238,15 @@ export default function Home() {
         {/* Right Side - Scrollable Content */}
         <main className="pt-24 lg:w-1/2 lg:py-24">
           
+          {/* Section Divider */}
+          <div className="mb-16 md:mb-24 lg:mb-36">
+            <div className="flex items-center justify-center mb-8">
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-600 to-slate-600 section-divider"></div>
+              <h2 className="px-6 text-sm font-bold uppercase tracking-widest text-slate-400 divider-title">About</h2>
+              <div className="flex-1 h-px bg-gradient-to-l from-transparent via-slate-600 to-slate-600 section-divider"></div>
+            </div>
+          </div>
+
           {/* About Section */}
           <section id="about" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="About me">
             <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-gradient-to-r from-slate-900/75 to-black/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
@@ -195,6 +264,15 @@ export default function Home() {
               </p>
             </div>
           </section>
+
+          {/* Section Divider */}
+          <div className="mb-16 md:mb-24 lg:mb-36">
+            <div className="flex items-center justify-center mb-8">
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-600 to-slate-600 section-divider"></div>
+              <h2 className="px-6 text-sm font-bold uppercase tracking-widest text-slate-400 divider-title">Education</h2>
+              <div className="flex-1 h-px bg-gradient-to-l from-transparent via-slate-600 to-slate-600 section-divider"></div>
+            </div>
+          </div>
 
           {/* Education Section */}
           <section id="education" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Education">
@@ -271,6 +349,15 @@ export default function Home() {
             </div>
           </section>
 
+          {/* Section Divider */}
+          <div className="mb-16 md:mb-24 lg:mb-36">
+            <div className="flex items-center justify-center mb-8">
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-600 to-slate-600 section-divider"></div>
+              <h2 className="px-6 text-sm font-bold uppercase tracking-widest text-slate-400 divider-title">Personal Projects</h2>
+              <div className="flex-1 h-px bg-gradient-to-l from-transparent via-slate-600 to-slate-600 section-divider"></div>
+            </div>
+          </div>
+
           {/* Personal Projects Section */}
           <section id="projects" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Selected personal projects">
             <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-gradient-to-r from-slate-900/75 to-black/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
@@ -322,10 +409,115 @@ export default function Home() {
                   </div>
                 </li>
 
+                {/* Project 2 - Home Lab Kali VM */}
+                <li className="mb-12">
+                  <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                    <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                    <div className="z-10 order-1 sm:order-2 sm:col-span-6">
+                      <h3>
+                        <a className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base" href="https://github.com/FreddyMorganSmith/linux-kali-lab" target="_blank" rel="noreferrer noopener" aria-label="Home Lab — Kali VM (VirtualBox) (opens in a new tab)">
+                          <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                          <span>Home Lab — Kali VM (VirtualBox)</span>
+                          <span className="inline-block">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true">
+                              <path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd"></path>
+                            </svg>
+                          </span>
+                        </a>
+                      </h3>
+                      <p className="mt-2 text-sm leading-normal">Personal home lab setup featuring a Kali Linux VM configured for cyber security learning and digital forensics practice. Implemented dual-network configuration with NAT and Host-Only adapters for safe penetration testing and traffic analysis.</p>
+                      <ul className="mt-2 flex flex-wrap" aria-label="Technologies used:">
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">VirtualBox</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Kali Linux</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Network Security</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Home Lab</div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="z-10 order-0 sm:order-1 sm:col-span-2 mb-4 sm:mb-0">
+                      <div className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1">
+                        <div className="h-16 w-full bg-white rounded flex items-center justify-center p-2">
+                          <Image 
+                            src="/kali-logo.png" 
+                            alt="Kali Linux Logo" 
+                            width={48} 
+                            height={48} 
+                            className="object-contain"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                {/* Project 3 - Home Wi-Fi Security */}
+                <li className="mb-12">
+                  <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                    <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                    <div className="z-10 order-1 sm:order-2 sm:col-span-6">
+                      <h3>
+                        <a className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base" href="https://github.com/FreddyMorganSmith/home-network-security" target="_blank" rel="noreferrer noopener" aria-label="Home Wi-Fi Security Assessment (opens in a new tab)">
+                          <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                          <span>Home Wi-Fi Security Assessment</span>
+                          <span className="inline-block">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true">
+                              <path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd"></path>
+                            </svg>
+                          </span>
+                        </a>
+                      </h3>
+                      <p className="mt-2 text-sm leading-normal">Comprehensive security assessment and hardening of home Wi-Fi network. Configured router security settings, disabled WPS/UPnP, updated firmware, and performed network traffic analysis using Wireshark to capture and analyze DNS requests.</p>
+                      <ul className="mt-2 flex flex-wrap" aria-label="Technologies used:">
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Wireshark</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Network Security</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Router Configuration</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Traffic Analysis</div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="z-10 order-0 sm:order-1 sm:col-span-2 mb-4 sm:mb-0">
+                      <div className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1">
+                        <div className="h-16 w-full bg-white rounded flex items-center justify-center p-2">
+                          <Image 
+                            src="/wifi-logo.png" 
+                            alt="Wi-Fi Logo" 
+                            width={48} 
+                            height={48} 
+                            className="object-contain"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
 
               </ul>
             </div>
           </section>
+
+          {/* Section Divider */}
+          <div className="mb-16 md:mb-24 lg:mb-36">
+            <div className="flex items-center justify-center mb-8">
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-600 to-slate-600 section-divider"></div>
+              <h2 className="px-6 text-sm font-bold uppercase tracking-widest text-slate-400 divider-title">University Projects</h2>
+              <div className="flex-1 h-px bg-gradient-to-l from-transparent via-slate-600 to-slate-600 section-divider"></div>
+            </div>
+          </div>
 
           {/* University Projects Section */}
           <section id="university-projects" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="University projects">

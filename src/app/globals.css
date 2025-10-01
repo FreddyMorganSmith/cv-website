@@ -180,3 +180,35 @@ body {
   scrollbar-width: thin;
   scrollbar-color: rgba(148, 163, 184, 0.5) rgba(51, 65, 85, 0.3);
 }
+
+/* Active navigation item styling */
+.nav a.active .nav-indicator {
+  box-shadow: 0 0 10px rgba(148, 163, 184, 0.5);
+}
+
+.nav a.active .nav-text {
+  text-shadow: 0 0 8px rgba(148, 163, 184, 0.3);
+}
+
+/* Section divider animation */
+@keyframes divider-glow {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.section-divider {
+  animation: divider-glow 4s ease-in-out infinite;
+}
+
+/* Divider title styling */
+.divider-title {
+  text-shadow: 0 0 8px rgba(148, 163, 184, 0.3);
+  background: linear-gradient(135deg, rgba(51, 65, 85, 0.8), rgba(30, 41, 59, 0.9));
+  border-radius: 8px;
+  padding: 8px 24px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
