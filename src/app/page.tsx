@@ -254,13 +254,13 @@ export default function Home() {
             </div>
             <div>
               <p className="mb-4">
-                I&apos;m a 2nd year Cyber Security and Digital Forensics student at Bournemouth University with a strong interest in defensive security, particularly incident response and malware analysis. Through my degree and personal exploration, I&apos;ve worked on projects ranging from CTF challenges and TryHackMe labs to configuring networks in Cisco Packet Tracer and building an e-commerce automation system in Python. I also maintain a home lab where I use tools like Wireshark to inspect network traffic and strengthen my analytical skills.
+                I&apos;m a 2nd year Cyber Security and Digital Forensics student at Bournemouth University with a keen interest in defensive security. I particularly enjoy incident response and malware analysis. Through my degree and personal projects, I&apos;ve tackled CTF challenges on TryHackMe and built an e-commerce automation system in Python. I maintain a home lab where I use Wireshark to inspect network traffic and develop my analytical skills.
               </p>
               <p className="mb-4">
-                Along with my studies, I have gained hands-on experience in IT support, which includes Active Directory and helpdesk troubleshooting. I have also developed leadership and teamwork skills as a Team Leader at JD Wetherspoons, where I was tasked with the responsibility of managing staff members, coordinating shifts, and ensuring smooth day-to-day operations in a high-stress environment. But these experiences have not only technically empowered me but also professionally prepared me to handle challenges in the domain of cyber security.
+                Beyond my studies, I&apos;ve gained practical experience in IT support working with Active Directory and helpdesk troubleshooting. As a Team Leader at JD Wetherspoons, I developed my leadership abilities by managing staff and coordinating shifts in a busy environment. These experiences have helped me build both technical expertise and the soft skills needed for a career in cyber security.
               </p>
               <p>
-                Aside from cyber security, I am also a long-distance runner and gym enthusiast, activities that render me disciplined, resilient, and motivated; qualities that I also extend to my academic and professional life.
+                Outside of technology, I&apos;m a long distance runner and gym regular. These activities have taught me discipline and resilience that carry over into my academic work.
               </p>
             </div>
           </section>
@@ -299,7 +299,7 @@ export default function Home() {
                         </div>
                       </h3>
                       <p className="mt-2 text-sm leading-normal">
-                        Currently pursuing a comprehensive degree in cyber security and digital forensics with a focus on defensive security, ethical hacking, and threat analysis. Gaining hands-on experience through practical labs, CTF challenges, and collaborative security projects.
+                        Currently studying cyber security and digital forensics with a focus on defensive security and threat analysis. Gaining practical experience through labs and CTF challenges whilst working on collaborative security projects.
                       </p>
                       <ul className="mt-2 flex flex-wrap" aria-label="Relevant coursework">
                         <li className="mr-1.5 mt-2">
@@ -332,7 +332,7 @@ export default function Home() {
                         </div>
                       </h3>
                       <p className="mt-2 text-sm leading-normal">
-                        Completed A-Level studies with a focus on Computer Science and Politics. Developed strong analytical and critical thinking skills while building a foundation in programming and understanding complex political systems.
+                        Completed A-Levels in Computer Science and Politics. Built a strong foundation in programming whilst developing analytical thinking skills.
                       </p>
                       <ul className="mt-2 flex flex-wrap" aria-label="Key subjects">
                         <li className="mr-1.5 mt-2">
@@ -382,7 +382,7 @@ export default function Home() {
                           </span>
                         </a>
                       </h3>
-                      <p className="mt-2 text-sm leading-normal">A collection of detailed writeups for various TryHackMe rooms, documenting my journey through different cybersecurity challenges. Each writeup includes step-by-step solutions, tools used, and lessons learned about penetration testing and security concepts.</p>
+                      <p className="mt-2 text-sm leading-normal">Detailed writeups for various TryHackMe rooms documenting my cybersecurity learning journey. Each writeup explains the approach taken and the tools used to solve different penetration testing challenges.</p>
                       <ul className="mt-2 flex flex-wrap" aria-label="Technologies used:">
                         <li className="mr-1.5 mt-2">
                           <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Penetration Testing</div>
@@ -425,7 +425,7 @@ export default function Home() {
                           </span>
                         </a>
                       </h3>
-                      <p className="mt-2 text-sm leading-normal">Personal home lab setup featuring a Kali Linux VM configured for cyber security learning and digital forensics practice. Implemented dual-network configuration with NAT and Host-Only adapters for safe penetration testing and traffic analysis.</p>
+                      <p className="mt-2 text-sm leading-normal">Personal home lab running a Kali Linux VM for cyber security practice. Set up with dual network adapters to safely test penetration techniques and analyse network traffic.</p>
                       <ul className="mt-2 flex flex-wrap" aria-label="Technologies used:">
                         <li className="mr-1.5 mt-2">
                           <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">VirtualBox</div>
@@ -473,7 +473,7 @@ export default function Home() {
                           </span>
                         </a>
                       </h3>
-                      <p className="mt-2 text-sm leading-normal">Comprehensive security assessment and hardening of home Wi-Fi network. Configured router security settings, disabled WPS/UPnP, updated firmware, and performed network traffic analysis using Wireshark to capture and analyze DNS requests.</p>
+                      <p className="mt-2 text-sm leading-normal">Security assessment and hardening of my home Wi-Fi network. Configured router security settings and used Wireshark to analyse network traffic patterns and DNS requests.</p>
                       <ul className="mt-2 flex flex-wrap" aria-label="Technologies used:">
                         <li className="mr-1.5 mt-2">
                           <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Wireshark</div>
@@ -499,6 +499,158 @@ export default function Home() {
                             height={48} 
                             className="object-contain"
                           />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                {/* Project 4 - Home Server with VPN */}
+                <li className="mb-12">
+                  <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                    <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                    <div className="z-10 order-1 sm:order-2 sm:col-span-6">
+                      <h3>
+                        <span className="inline-flex items-baseline font-medium leading-tight text-slate-200 text-base">
+                          <span>Home Server with VPN & Nextcloud</span>
+                        </span>
+                      </h3>
+                      <p className="mt-2 text-sm leading-normal">Built a self-hosted home server using Ubuntu Server and Docker to run Nextcloud for private file storage. Configured WireGuard VPN for secure remote access from anywhere. This project helped me develop practical Linux administration skills and understand containerisation better.</p>
+                      <ul className="mt-2 flex flex-wrap" aria-label="Technologies used:">
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Ubuntu Server</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Docker</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Nextcloud</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">WireGuard VPN</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Self-Hosted</div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="z-10 order-0 sm:order-1 sm:col-span-2 mb-4 sm:mb-0">
+                      <div className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1">
+                        <div className="h-16 w-full bg-[#2496ED] rounded flex items-center justify-center p-2">
+                          <span className="text-2xl font-bold text-white">Docker</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                {/* Project 5 - Splunk SIEM Lab */}
+                <li className="mb-12">
+                  <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                    <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                    <div className="z-10 order-1 sm:order-2 sm:col-span-6">
+                      <h3>
+                        <span className="inline-flex items-baseline font-medium leading-tight text-slate-200 text-base">
+                          <span>Splunk SIEM Practice Lab</span>
+                        </span>
+                      </h3>
+                      <p className="mt-2 text-sm leading-normal">Set up Splunk on my home server to practise SIEM tools and log analysis. Created custom dashboards and wrote search queries to detect security events. This project has been valuable for developing skills needed in SOC analyst roles.</p>
+                      <ul className="mt-2 flex flex-wrap" aria-label="Technologies used:">
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Splunk</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">SIEM</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Log Analysis</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Security Monitoring</div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="z-10 order-0 sm:order-1 sm:col-span-2 mb-4 sm:mb-0">
+                      <div className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1">
+                        <div className="h-16 w-full bg-[#000000] rounded flex items-center justify-center p-2">
+                          <span className="text-2xl font-bold text-[#ff6b00]">Splunk</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                {/* Project 6 - CTF & OverTheWire */}
+                <li className="mb-12">
+                  <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                    <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                    <div className="z-10 order-1 sm:order-2 sm:col-span-6">
+                      <h3>
+                        <span className="inline-flex items-baseline font-medium leading-tight text-slate-200 text-base">
+                          <span>CTF Challenges & OverTheWire Wargames</span>
+                        </span>
+                      </h3>
+                      <p className="mt-2 text-sm leading-normal">Regular participation in CTF challenges and OverTheWire wargames to develop practical security skills. These challenges cover topics like web exploitation and privilege escalation. Consistent practice has really helped sharpen my problem-solving abilities.</p>
+                      <ul className="mt-2 flex flex-wrap" aria-label="Technologies used:">
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">CTF</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">OverTheWire</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Problem Solving</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Linux</div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="z-10 order-0 sm:order-1 sm:col-span-2 mb-4 sm:mb-0">
+                      <div className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1">
+                        <div className="h-16 w-full bg-gradient-to-br from-red-900 to-red-700 rounded flex items-center justify-center">
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="h-10 w-10 text-white">
+                            <path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z"/>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                {/* Project 7 - Reverse Engineering */}
+                <li className="mb-12">
+                  <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                    <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                    <div className="z-10 order-1 sm:order-2 sm:col-span-6">
+                      <h3>
+                        <span className="inline-flex items-baseline font-medium leading-tight text-slate-200 text-base">
+                          <span>Reverse Engineering Practice — Crackme Challenges</span>
+                        </span>
+                      </h3>
+                      <p className="mt-2 text-sm leading-normal">Completed a reverse engineering learning project analysing beginner crackme programs from crackmes.one. Used radare2 and Cutter to examine program structure whilst employing strace and ltrace to monitor system calls. This helped me understand how DFIR analysts approach unknown files and how to safely test binaries in a controlled environment.</p>
+                      <ul className="mt-2 flex flex-wrap" aria-label="Technologies used:">
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Radare2</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Cutter</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Wireshark</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">strace/ltrace</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Binary Analysis</div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="z-10 order-0 sm:order-1 sm:col-span-2 mb-4 sm:mb-0">
+                      <div className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1">
+                        <div className="h-16 w-full bg-[#1a1a1a] rounded flex items-center justify-center p-2">
+                          <span className="text-2xl font-bold text-white">radare2</span>
                         </div>
                       </div>
                     </div>
@@ -545,7 +697,7 @@ export default function Home() {
                           </a>
                         </div>
                       </h3>
-                      <p className="mt-2 text-sm leading-normal">A Python-based e-commerce application developed as part of university coursework. This project demonstrates understanding of object-oriented programming principles, data structures, and software engineering practices.</p>
+                      <p className="mt-2 text-sm leading-normal">A Python e-commerce application developed for university coursework. This project helped solidify my understanding of object-oriented programming and software engineering practices.</p>
                       <ul className="mt-2 flex flex-wrap" aria-label="Technologies used:">
                         <li className="mr-1.5 mt-2">
                           <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Python</div>
@@ -555,6 +707,71 @@ export default function Home() {
                         </li>
                         <li className="mr-1.5 mt-2">
                           <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">University Project</div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+
+                {/* University Project 2 - Steve Irwin AI Chatbot */}
+                <li className="mb-12">
+                  <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                    <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                    <div className="z-10 sm:col-span-8">
+                      <h3 className="font-medium leading-snug text-slate-200">
+                        <div>
+                          <span className="inline-flex items-baseline font-medium leading-tight text-slate-200 text-base">
+                            <span>Steve Irwin AI Chatbot</span>
+                          </span>
+                        </div>
+                      </h3>
+                      <p className="mt-2 text-sm leading-normal">Team project where we built an interactive AI chatbot for zoo information displays. The chatbot delivers animal facts in Steve Irwin&apos;s style. I worked on both frontend and backend development whilst learning proper GitHub collaboration workflows.</p>
+                      <ul className="mt-2 flex flex-wrap" aria-label="Technologies used:">
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Team Collaboration</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">GitHub</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Full Stack</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">AI Chatbot</div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+
+                {/* University Project 3 - Structured Penetration Test */}
+                <li className="mb-12">
+                  <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                    <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                    <div className="z-10 sm:col-span-8">
+                      <h3 className="font-medium leading-snug text-slate-200">
+                        <div>
+                          <span className="inline-flex items-baseline font-medium leading-tight text-slate-200 text-base">
+                            <span>Structured Penetration Test — PTES Methodology</span>
+                          </span>
+                        </div>
+                      </h3>
+                      <p className="mt-2 text-sm leading-normal">Conducted a penetration test following PTES methodology on vulnerable VMs for my Ethical Hacking module. Successfully identified and exploited security weaknesses through reconnaissance and exploitation phases. Captured all flags and documented findings in a professional pentest report.</p>
+                      <ul className="mt-2 flex flex-wrap" aria-label="Technologies used:">
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">PTES Methodology</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Penetration Testing</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Ethical Hacking</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Exploitation</div>
+                        </li>
+                        <li className="mr-1.5 mt-2">
+                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Report Writing</div>
                         </li>
                       </ul>
                     </div>
